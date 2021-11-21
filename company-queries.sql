@@ -62,3 +62,9 @@ union
           Mgr_ssn = Ssn and 
           Lname = 'Smith'
 );
+
+
+/* retrieve any employees who do not have a supervisor */
+select Fname, Lname 
+from EMPLOYEE 
+where Super_ssn is null;

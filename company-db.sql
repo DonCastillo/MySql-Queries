@@ -125,7 +125,7 @@ create table DEPENDENT (
     foreign key (Essn) references EMPLOYEE (Ssn) 
 );  
 
-insert into DEPARTMENT values
+insert into DEPENDENT values
 ('333445555', 'Alice', 'F', '1986-04-05', 'Daughter'),
 ('333445555', 'Theodore', 'M', '1983-10-25', 'Son'),
 ('333445555', 'Joy', 'F', '1958-05-03', 'Spouse'),

@@ -116,3 +116,28 @@ select distinct Fname, Lname
 from EMPLOYEE, DEPARTMENT, DEPENDENT 
 where Ssn = Mgr_ssn and 
       Ssn = Essn;
+
+
+/* retrieve the name of each employee who works on ALL the projects controlled by department nuber 5 */
+select Fname, Lname 
+from EMPLOYEE 
+where not exists 
+    (
+        (
+            select Pnumber 
+            from PROJECT 
+            where Dnum = 5
+        )
+        except
+        (
+            select Pno
+            from WORKS_ON 
+            where Essn = Ssn 
+        )
+    );
+
+
+/* retrieve the social security numbers of all employees who work on project numbers 1, 2, 3 */
+select distinct Essn 
+from WORKS_ON 
+where Pno in (1, 2, 3);
